@@ -45,7 +45,7 @@
         a:hover { color: var(--color-brand); }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* --- Framer-like Animation Simulation --- */
+        /* --- Animation Simulation --- */
         .animate-on-load {
             opacity: 0;
             transform: translateY(20px);
@@ -58,6 +58,7 @@
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
         .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
 
         /* --- Header / Hero --- */
         .hero-section {
@@ -65,7 +66,7 @@
             text-align: center;
             background-color: var(--color-background-soft);
         }
-        .logo { font-size: 1.1em; font-weight: 600; text-transform: uppercase; color: var(--color-brand); margin-bottom: 8px; }
+        .logo { font-size: 1.1em; font-weight: 600; text-transform: uppercase; color: var(--color-brand); }
         h1 { 
             font-size: clamp(2.5rem, 6vw, 4.5rem); 
             font-weight: 900;
@@ -79,13 +80,27 @@
             font-size: clamp(1.1rem, 2vw, 1.4rem); 
             color: var(--color-text-subtle); 
             max-width: 700px; 
-            margin: 25px auto 50px;
+            margin: 25px auto 40px;
+        }
+        .hero-cta-group {
+            background: var(--color-background);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            max-width: 750px;
+            margin: 0 auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+        .hero-cta-group h2 {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin: 0 0 20px;
         }
         .cta-button {
             display: inline-flex;
             align-items: center;
             background-color: var(--color-brand);
-            color: var(--color-background);
+            color: var(--color-background) !important;
             font-weight: 700;
             padding: 14px 35px;
             border-radius: 50px;
@@ -102,15 +117,20 @@
         }
 
         /* --- Stats Section --- */
-        .stats-section {
-            padding: 60px 0 80px;
+        .stats-section, .features-section {
+            padding: 80px 0;
             background-color: var(--color-background);
+        }
+        .section-title {
+            text-align: center; 
+            font-size: clamp(1.8rem, 4vw, 2.2rem); 
+            font-weight: 800; 
+            margin-bottom: 50px;
         }
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-            margin-top: 40px;
         }
         .stat-item {
             text-align: center;
@@ -172,13 +192,115 @@
             font-size: 0.95em;
             color: var(--color-text-subtle);
         }
-
+        
+        /* --- Pricing Section --- */
+        .pricing-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--color-background-soft);
+        }
+        .pricing-toggle {
+            display: inline-flex;
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .toggle-btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            color: var(--color-text-subtle);
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.4s;
+        }
+        .toggle-btn.active {
+            color: var(--color-background);
+        }
+        #glider {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            background-color: var(--color-brand);
+            border-radius: 50px;
+            transition: transform 0.3s ease, width 0.3s ease;
+            z-index: 1;
+        }
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid var(--color-brand);
+            border-radius: 16px;
+            background-color: var(--color-background);
+            box-shadow: 0 10px 30px rgba(0, 201, 167, 0.1);
+        }
+        #price-monthly, #price-annual { display: none; }
+        #price-monthly.active, #price-annual.active { display: block; }
+        .founder-badge {
+            display: inline-block;
+            background-color: var(--color-brand);
+            color: var(--color-background);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .price {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin: 20px 0 0;
+            color: var(--color-text);
+        }
+        .price-term {
+            color: var(--color-text-subtle);
+            font-size: 0.4em;
+            font-weight: 500;
+        }
+        .price-equivalent {
+            color: var(--color-text-subtle);
+            font-weight: 500;
+            height: 1.5em;
+        }
+        .price-benefit {
+            color: var(--color-brand);
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+            display: inline-block;
+        }
+        .feature-list li { margin-bottom: 12px; font-weight: 500; }
+        .feature-list li::before {
+            content: '✓';
+            color: var(--color-brand);
+            margin-right: 10px;
+            font-weight: 700;
+        }
+        .pricing-note {
+            font-size: 0.9em;
+            color: var(--color-text-subtle);
+            margin-top: 30px;
+        }
 
         /* --- Footer --- */
         footer { 
             padding: 40px 0;
             border-top: 1px solid var(--color-border);
-            background-color: var(--color-background-soft);
+            background-color: var(--color-background);
             font-size: 0.85em; 
             color: var(--color-text-subtle); 
             text-align: center;
@@ -195,52 +317,55 @@
 
     <header class="hero-section">
         <div class="container">
-            <div class="logo animate-on-load">Bike Shop Network</div>
+            <img src="favicon.png" alt="Bike Shop Network Logo" style="max-height:60px;">
+            <div class="logo animate-on-load" style="margin-bottom: 20px;">Bike Shop Network</div>
             
             <h1 class="animate-on-load delay-1">
                 The Data Platform for Cycling Retail Professionals.
             </h1>
             
             <p class="tagline animate-on-load delay-2">
-                Elevating the cycling experience, one shop at a time. We empower local shops to dominate their markets with exclusive data and actionable insights.
+                We empower local shops to dominate their markets with exclusive data and actionable insights. Elevating the cycling experience, one shop at a time.
             </p>
             
-            <a href="mailto:contact@bikeshop-network.com" class="cta-button animate-on-load delay-3">
-                Request Early Access
-                &nbsp; →
-            </a>
-            
-            <p id="launch-timer" style="margin-top: 30px; font-size: 1.1em; color: var(--color-text-subtle); font-weight: 600;">
-                Launching on October 1st
-            </p>
+            <div class="hero-cta-group animate-on-load delay-3">
+                <h2>Want to know your bike shop's local, national, and global ranking?</h2>
+                <a href="#" class="cta-button">
+                    Start Your Free Trial
+                    &nbsp; →
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="stats-section">
-        <div class="container">
-            <h2 class="animate-on-load" style="text-align: center; font-size: 2em; font-weight: 700; margin-bottom: 40px;">
-                Home of the World's Largest Bike Retail Database
-            </h2>
-            <div class="stats-grid animate-on-load delay-1">
-                <div class="stat-item">
-                    <div class="stat-number">15,139</div>
-                    <div class="stat-label">Bike Shops Analyzed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">704</div>
-                    <div class="stat-label">Cities Covered</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">56</div>
-                    <div class="stat-label">Countries Connected</div>
+    <main>
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="section-title animate-on-load">
+                    Home of the World's Largest Bike Retail Database
+                </h2>
+                <div class="stats-grid animate-on-load delay-1">
+                    <div class="stat-item">
+                        <div class="stat-number">15,139</div>
+                        <div class="stat-label">Bike Shops Analyzed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">704</div>
+                        <div class="stat-label">Cities Covered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">56</div>
+                        <div class="stat-label">Countries Connected</div>
+                    </div>
                 </div>
             </div>
-            
-            <section style="margin-top: 80px; text-align: center;">
-                <h3 class="animate-on-load delay-2" style="font-size: 1.8em; font-weight: 700; color: var(--color-brand); margin-bottom: 25px;">
+        </section>
+        
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title animate-on-load delay-2">
                     Included Tools & Features
-                </h3>
-                
+                </h2>
                 <div class="feature-grid">
                     <div class="feature-card animate-on-load delay-3">
                         <div class="feature-icon">✨</div>
@@ -258,8 +383,64 @@
                         <p>300+ proven copy-paste templates for emails, newsletters, and social posts to effortlessly engage your community.</p>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+
+        <!-- === PRICING SECTION FOR PADDLE VALIDATION === -->
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title animate-on-load">
+                    Simple, Transparent Pricing
+                </h2>
+
+                <div class="pricing-toggle animate-on-load delay-1">
+                    <div id="glider"></div>
+                    <button id="monthly-btn" class="toggle-btn active">Monthly</button>
+                    <button id="annual-btn" class="toggle-btn">Annual (-50%)</button>
+                </div>
+
+                <div class="pricing-card animate-on-load delay-2">
+                    
+                    <div id="price-monthly" class="active">
+                        <div class="price">€99<span class="price-term">/ month</span></div>
+                        <p class="price-equivalent">&nbsp;</p> <!-- Placeholder for alignment -->
+                        <ul class="feature-list">
+                            <li>Performance Dashboard (BSN Score)</li>
+                            <li>Top 10 Rankings per City (700+)</li>
+                            <li>Image & SEO Optimizer</li>
+                            <li>Royalty-Free Image Gallery</li>
+                            <li>300+ Marketing Templates</li>
+                        </ul>
+                        <a href="#" class="cta-button">Start 48h Free Trial</a>
+                        <p class="pricing-note">
+                            Begin with a 48-hour "Discovery Access" trial.
+                        </p>
+                    </div>
+
+                    <div id="price-annual">
+                        <div class="founder-badge">Founder's Offer</div>
+                        <div class="price">€49.50<span class="price-term">/ month</span></div>
+                        <p class="price-equivalent">Billed at €594 per year</p>
+                        <p class="price-benefit" style="margin-top: 15px; margin-bottom: -5px;">Get 6 months free!</p>
+                        <p class="price-equivalent" style="font-size: 0.9em;">(Standard annual offer is 2 months free)</p>
+                        <ul class="feature-list">
+                            <li>Performance Dashboard (BSN Score)</li>
+                            <li>Top 10 Rankings per City (700+)</li>
+                            <li>Image & SEO Optimizer</li>
+                            <li>Royalty-Free Image Gallery</li>
+                            <li>300+ Marketing Templates</li>
+                        </ul>
+                        <a href="#" class="cta-button">Start 48h Free Trial</a>
+                        <p class="pricing-note">
+                            Begin with a 48-hour "Discovery Access" trial. <br>
+                            The Founder's Offer is limited to the first 50 partners. <br>
+                            <strong>It includes a 30-day money-back guarantee.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === END PRICING SECTION === -->
     </main>
 
     <footer>
@@ -277,5 +458,50 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Wait for the DOM to be fully loaded before running the script
+        window.addEventListener('DOMContentLoaded', () => {
+            const monthlyBtn = document.getElementById('monthly-btn');
+            const annualBtn = document.getElementById('annual-btn');
+            const priceMonthly = document.getElementById('price-monthly');
+            const priceAnnual = document.getElementById('price-annual');
+            const glider = document.getElementById('glider');
+
+            function setGliderState() {
+                const activeButton = document.querySelector('.toggle-btn.active');
+                if (!activeButton) return;
+
+                glider.style.width = `${activeButton.offsetWidth}px`;
+
+                if (activeButton.id === 'annual-btn') {
+                    glider.style.transform = `translateX(${monthlyBtn.offsetWidth}px)`;
+                } else {
+                    glider.style.transform = 'translateX(0)';
+                }
+            }
+
+            monthlyBtn.addEventListener('click', () => {
+                monthlyBtn.classList.add('active');
+                annualBtn.classList.remove('active');
+                priceMonthly.classList.add('active');
+                priceAnnual.classList.remove('active');
+                setGliderState();
+            });
+
+            annualBtn.addEventListener('click', () => {
+                annualBtn.classList.add('active');
+                monthlyBtn.classList.remove('active');
+                priceAnnual.classList.add('active');
+                priceMonthly.classList.remove('active');
+                setGliderState();
+            });
+
+            setGliderState();
+
+            window.addEventListener('resize', setGliderState);
+        });
+    </script>
 </body>
 </html>
+

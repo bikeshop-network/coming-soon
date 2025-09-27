@@ -58,15 +58,7 @@
             color: var(--color-brand);
         }
         p, li { font-size: 1.05em; }
-        ul { list-style: none; padding-left: 0; margin-top: 20px;}
-        li { 
-            margin-bottom: 15px; 
-            background-color: var(--color-background-soft); 
-            padding: 20px; 
-            border-radius: 10px; 
-            border-left: 4px solid var(--color-brand);
-            transition: background-color 0.3s;
-        }
+        ul { list-style: disc; padding-left: 20px; margin-top: 15px;}
         strong { font-weight: 700; }
         .contact-box { 
             margin-top: 50px; 
@@ -80,45 +72,63 @@
 <body>
     <header>
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: <time datetime="2025-09-20">September 20, 2025</time></p>
+        <p class="last-updated">Last updated: <time datetime="2025-09-27">September 27, 2025</time></p>
     </header>
 
     <main>
-        <p>Bike Shop Network ("we", "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by our B2B SaaS service.</p>
+        <h2>1. Introduction</h2>
+        <p>Bike Shop Network ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and disclose your personal information when you use our B2B SaaS service ("Service").</p>
+        <p>The data controller responsible for your information is <strong>Benoît Morin (SIRET: 83340915400022)</strong>.</p>
 
-        <h2>1. Data We Collect</h2>
-        <p>We collect information you provide directly to us when you create and manage your subscription account:</p>
+        <h2>2. Information We Collect</h2>
+        <p>We collect information you provide directly to us, necessary for the performance of our contract with you:</p>
+        <ul>
+            <li><strong>Account Information:</strong> Your name, email address, and company information are required to create and manage your account, provide customer support, and send important service-related communications.</li>
+            <li><strong>Billing Information:</strong> All payment processing is handled by our Merchant of Record, Paddle.com. We do not collect or store your credit card details. Paddle may collect information necessary to process your payment.</li>
+        </ul>
+
+        <h2>3. Legal Basis for Processing</h2>
+        <p>We process your personal data based on the following legal grounds:</p>
+        <ul>
+            <li><strong>Performance of a Contract:</strong> The majority of our processing is necessary to provide the Service you have subscribed to.</li>
+            <li><strong>Legal Obligation:</strong> We are required to process certain data for compliance with legal and tax obligations.</li>
+        </ul>
+
+        <h2>4. Data Sharing and Sub-processors</h2>
+        <p>To provide our Service, we rely on trusted third-party services (sub-processors). We have verified that these partners have strong privacy and security standards. Our key sub-processors are:</p>
+        <ul>
+            <li><strong>Hosting:</strong> Vercel (USA) for application hosting.</li>
+            <li><strong>Database & Authentication:</strong> Supabase (USA) for database management and user authentication.</li>
+            <li><strong>Payments:</strong> Paddle.com (UK/Ireland) as our Merchant of Record.</li>
+            <li><strong>CRM & Communications:</strong> Zoho (EU Datacenter) for customer support emails.</li>
+        </ul>
+        <p>Some of these sub-processors are located outside the European Economic Area (EEA). In such cases, we ensure that data transfers are protected by appropriate safeguards, such as Standard Contractual Clauses (SCCs).</p>
         
-        <h3>Identification and Account Information</h3>
+        <h2>5. Data Retention</h2>
+        <p>We retain your personal data for as long as your account is active and for a reasonable period thereafter to comply with our legal obligations (e.g., for tax and accounting purposes). After this period, your personal data will be securely deleted.</p>
+
+        <h2>6. Cookies and Analytics</h2>
         <ul>
-            <li><strong>Name and Email Address:</strong> Required for account creation and communication.</li>
-            <li><strong>Company Information:</strong> Legal name, registered address, and SIRET (83340915400022), used for billing and legal compliance.</li>
+            <li><strong>Essential Cookies:</strong> We may use essential cookies to maintain your login session and ensure the security of your account. These cookies do not track you and are necessary for the functioning of the Service.</li>
+            <li><strong>Analytics:</strong> We use Vercel Analytics to understand service usage and improve performance. This tool is privacy-focused: it does not use cookies and does not collect any personally identifiable information.</li>
         </ul>
 
-        <h2>2. Data Hosting & Sub-processors</h2>
-        <p>To provide our service, we rely on the following key third-party services that may process your data on our behalf:</p>
+        <h2>7. Your Data Rights (GDPR)</h2>
+        <p>As a user, you have the following rights regarding your personal data:</p>
         <ul>
-            <li><strong>Hosting: Vercel (USA).</strong> Provides the application hosting structure.</li>
-            <li><strong>Database & Authentication: Supabase (USA).</strong> Manages our core database, user authentication, and secure file storage.</li>
-            <li><strong>Payments: Paddle.com (UK/Ireland).</strong> Our Merchant of Record handles all payment transactions. **We do not store your credit card details.**</li>
-            <li><strong>CRM & Communications: Zoho (EU Datacenter).</strong> Used for customer relationship management and email communications.</li>
+            <li><strong>Right to Access:</strong> You can request a copy of the personal data we hold about you.</li>
+            <li><strong>Right to Rectification:</strong> You can request to correct any inaccurate or incomplete data.</li>
+            <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You can request the deletion of your personal data.</li>
+            <li><strong>Right to Restrict Processing:</strong> You can request to limit how we use your data.</li>
+            <li><strong>Right to Data Portability:</strong> You can request to receive your data in a machine-readable format.</li>
+            <li><strong>Right to Object:</strong> You can object to our processing of your data.</li>
         </ul>
-
-        <h2>3. Analytics Data</h2>
-        <p>To improve our platform's performance, we use Vercel Analytics and Vercel Speed Insights. These tools are selected because:</p>
-        <ul>
-            <li>They collect anonymous performance and usage data.</li>
-            <li>They do not use cookies for tracking.</li>
-            <li>They do not collect any personally identifiable information.</li>
-        </ul>
-
-        <h2>4. Your Rights (GDPR Compliance)</h2>
-        <p>In accordance with GDPR, you have the right to access, rectify, or erase your personal data. You also have the right to object to processing or request its restriction. Please use the contact information below to exercise any of these rights.</p>
+        <p>To exercise any of these rights, please contact us. You also have the right to lodge a complaint with a supervisory authority, such as the CNIL in France.</p>
 
         <div class="contact-box">
             <h3>Contact for Privacy Requests</h3>
             <p>For any questions or to submit a request regarding your personal data, please contact us at:</p>
-            <p><strong>Email:</strong> <a href="mailto:privacy@bikeshop-network.com">privacy@bikeshop-network.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:privacy@bikeshop-network.com" style="color: white">privacy@bikeshop-network.com</a></p>
         </div>
     </main>
 </body>
