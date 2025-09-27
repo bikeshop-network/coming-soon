@@ -211,7 +211,7 @@
             </a>
             
             <p id="launch-timer" style="margin-top: 30px; font-size: 1.1em; color: var(--color-text-subtle); font-weight: 600;">
-                Launching in <span id="timer-days">--</span>d <span id="timer-hours">--</span>h <span id="timer-mins">--</span>m <span id="timer-secs">--</span>s
+                Launching on October 1st
             </p>
         </div>
     </header>
@@ -277,24 +277,5 @@
             </p>
         </div>
     </footer>
-    <script>
-    // Timer jusqu'au 1er octobre à minuit (heure locale)
-    function updateLaunchTimer() {
-        const launchDate = new Date(new Date().getFullYear(), 9, 1, 0, 0, 0);
-        const now = new Date();
-        let diff = launchDate - now;
-        if (diff < 0) diff = 0;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const mins = Math.floor((diff / (1000 * 60)) % 60);
-        const secs = Math.floor((diff / 1000) % 60);
-        document.getElementById('timer-days').textContent = days;
-        document.getElementById('timer-hours').textContent = hours;
-        document.getElementById('timer-mins').textContent = mins;
-        document.getElementById('timer-secs').textContent = secs;
-    }
-    updateLaunchTimer();
-    setInterval(updateLaunchTimer, 1000);
-</script>
 </body>
 </html>
