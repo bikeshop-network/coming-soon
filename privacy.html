@@ -2,30 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Bike Shop Network</title>
-    <style>body { font-family: sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; }</style>
+    <link rel="icon" type="image/png" href="public/favicon.png">
+    <style>
+        /* --- Core Variables & Dark Mode (Consistent) --- */
+        :root {
+            --color-brand: #00c9a7;
+            --color-text: #1d1d1f;
+            --color-text-subtle: #6e6e73;
+            --color-background: #ffffff;
+            --color-background-soft: #f5f5f7;
+            --color-border: #eaeaec;
+            --color-link: #0066cc;
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-text: #f5f5f7;
+                --color-text-subtle: #9e9e9f;
+                --color-background: #000000;
+                --color-background-soft: #121212;
+                --color-border: #222222;
+                --color-link: #4da6ff;
+            }
+        }
+        /* --- Global Styles --- */
+        body { 
+            font-family: var(--font-family-sans);
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 60px 20px; 
+            line-height: 1.75;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            transition: background-color 0.4s, color 0.4s;
+        }
+        header { border-bottom: 2px solid var(--color-border); padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { 
+            font-size: 2.5em; 
+            font-weight: 800;
+            color: var(--color-brand);
+            margin: 0;
+        }
+        .last-updated { font-size: 0.9em; color: var(--color-text-subtle); margin-top: 5px; }
+        h2 { 
+            font-size: 1.8em; 
+            font-weight: 700;
+            margin-top: 40px; 
+            color: var(--color-text);
+        }
+        h3 { 
+            font-size: 1.3em; 
+            margin-top: 25px; 
+            color: var(--color-brand);
+        }
+        p, li { font-size: 1.05em; }
+        ul { list-style: none; padding-left: 0; margin-top: 20px;}
+        li { 
+            margin-bottom: 15px; 
+            background-color: var(--color-background-soft); 
+            padding: 20px; 
+            border-radius: 10px; 
+            border-left: 4px solid var(--color-brand);
+            transition: background-color 0.3s;
+        }
+        strong { font-weight: 700; }
+        .contact-box { 
+            margin-top: 50px; 
+            padding: 30px; 
+            background-color: var(--color-background-soft);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+    </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p>Last updated: September 20, 2025</p>
-    <p>Bike Shop Network ("we", "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Bike Shop Network.</p>
-    
-    <h2>Data We Collect</h2>
-    <p>We collect information you provide directly to us when you create an account, such as your name, email address, and company information. </p>
-    
-    <h2>Data Hosting & Sub-processors</h2>
-    <p>To provide our service, we rely on key third-party services that may process your data on our behalf:</p>
-    <ul>
-        <li><strong>Hosting:</strong> Our application is hosted on Vercel (USA).</li>
-        <li><strong>Database & Authentication:</strong> Our database, user authentication, and file storage are managed by Supabase (USA).</li>
-        <li><strong>Payments:</strong> All payment information is handled directly by our Merchant of Record, Paddle.com (UK/Ireland), and we do not store your credit card details.</li>
-        <li><strong>CRM & Communications:</strong> Our customer relationship management and email communications are handled by Zoho (EU Datacenter).</li>
-    </ul>
+    <header>
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: <time datetime="2025-09-20">September 20, 2025</time></p>
+    </header>
 
-    <h2>Analytics Data</h2>
-    <p>To improve our website's performance, we use Vercel Analytics and Vercel Speed Insights. These tools collect anonymous performance and usage data, do not use cookies, and do not collect any personally identifiable information.</p>
+    <main>
+        <p>Bike Shop Network ("we", "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by our B2B SaaS service.</p>
 
-    <h2>Your Rights</h2>
-    <p>In accordance with GDPR, you have the right to access, rectify, or erase your personal data. Please contact us at privacy@bikeshop-network.com for any request.</p>
+        <h2>1. Data We Collect</h2>
+        <p>We collect information you provide directly to us when you create and manage your subscription account:</p>
+        
+        <h3>Identification and Account Information</h3>
+        <ul>
+            <li><strong>Name and Email Address:</strong> Required for account creation and communication.</li>
+            <li><strong>Company Information:</strong> Legal name, registered address, and SIRET (83340915400022), used for billing and legal compliance.</li>
+        </ul>
+
+        <h2>2. Data Hosting & Sub-processors</h2>
+        <p>To provide our service, we rely on the following key third-party services that may process your data on our behalf:</p>
+        <ul>
+            <li><strong>Hosting: Vercel (USA).</strong> Provides the application hosting structure.</li>
+            <li><strong>Database & Authentication: Supabase (USA).</strong> Manages our core database, user authentication, and secure file storage.</li>
+            <li><strong>Payments: Paddle.com (UK/Ireland).</strong> Our Merchant of Record handles all payment transactions. **We do not store your credit card details.**</li>
+            <li><strong>CRM & Communications: Zoho (EU Datacenter).</strong> Used for customer relationship management and email communications.</li>
+        </ul>
+
+        <h2>3. Analytics Data</h2>
+        <p>To improve our platform's performance, we use Vercel Analytics and Vercel Speed Insights. These tools are selected because:</p>
+        <ul>
+            <li>They collect anonymous performance and usage data.</li>
+            <li>They do not use cookies for tracking.</li>
+            <li>They do not collect any personally identifiable information.</li>
+        </ul>
+
+        <h2>4. Your Rights (GDPR Compliance)</h2>
+        <p>In accordance with GDPR, you have the right to access, rectify, or erase your personal data. You also have the right to object to processing or request its restriction. Please use the contact information below to exercise any of these rights.</p>
+
+        <div class="contact-box">
+            <h3>Contact for Privacy Requests</h3>
+            <p>For any questions or to submit a request regarding your personal data, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:privacy@bikeshop-network.com">privacy@bikeshop-network.com</a></p>
+        </div>
+    </main>
 </body>
 </html>

@@ -2,20 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refund Policy - Bike Shop Network</title>
-    <style>body { font-family: sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; }</style>
+    <link rel="icon" type="image/png" href="public/favicon.png">
+    <style>
+        /* --- Core Variables & Dark Mode (Consistent) --- */
+        :root {
+            --color-brand: #00c9a7;
+            --color-text: #1d1d1f;
+            --color-text-subtle: #6e6e73;
+            --color-background: #ffffff;
+            --color-background-soft: #f5f5f7;
+            --color-border: #eaeaec;
+            --color-link: #0066cc;
+            --color-success-bg: #e6ffed;
+            --color-success-border: #4CAF50;
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-text: #f5f5f7;
+                --color-text-subtle: #9e9e9f;
+                --color-background: #000000;
+                --color-background-soft: #121212;
+                --color-border: #222222;
+                --color-link: #4da6ff;
+                --color-success-bg: #0c1a16;
+                --color-success-border: #4CAF50;
+            }
+        }
+        /* --- Global Styles --- */
+        body { 
+            font-family: var(--font-family-sans);
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 60px 20px; 
+            line-height: 1.75;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            transition: background-color 0.4s, color 0.4s;
+        }
+        header { border-bottom: 2px solid var(--color-border); padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { 
+            font-size: 2.5em; 
+            font-weight: 800;
+            color: var(--color-brand);
+            margin: 0;
+        }
+        .last-updated { font-size: 0.9em; color: var(--color-text-subtle); margin-top: 5px; }
+        h2 { 
+            font-size: 1.8em; 
+            font-weight: 700;
+            margin-top: 40px; 
+            color: var(--color-text);
+        }
+        p, li { font-size: 1.05em; }
+        strong { font-weight: 700; }
+
+        .policy-highlight {
+            padding: 25px;
+            border: 2px solid var(--color-success-border);
+            background-color: var(--color-success-bg);
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.1em;
+            color: var(--color-text);
+        }
+        .contact-box { 
+            margin-top: 50px; 
+            padding: 30px; 
+            background-color: var(--color-background-soft);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+    </style>
 </head>
 <body>
-    <h1>Refund Policy</h1>
-    <p>Last updated: September 20, 2025</p>
+    <header>
+        <h1>Refund Policy</h1>
+        <p class="last-updated">Last updated: <time datetime="2025-09-20">September 20, 2025</time></p>
+    </header>
 
-    <h2>Promotional Offers</h2>
-    <p>Specific promotional offers, such as our launch offer, may include a special money-back guarantee (e.g., 30 days). The terms of this guarantee will be clearly stated on the offer page at the time of purchase.</p>
+    <main>
+        <p>This policy outlines the conditions under which Bike Shop Network accepts refund requests for subscriptions to its B2B SaaS platform.</p>
 
-    <h2>Standard Policy</h2>
-    <p><strong>Our standard policy grants all customers a 14-day withdrawal period from the date of purchase for any new subscription.</strong></p>
-    
-    <h2>How to Request a Refund</h2>
-    <p>To request a refund under the terms of your purchase, please contact our support team at support@bikeshop-network.com with your order details. Refunds will be processed through our payment partner, Paddle.com, and may take 5-10 business days to appear on your statement.</p>
+        <h2>1. Standard Withdrawal Period</h2>
+        
+        <div class="policy-highlight">
+            <p><strong>Standard Policy:</strong> Our standard policy grants all new customers a **14-day** withdrawal period from the date of purchase for any new subscription.</p>
+            <p>A full refund will be issued for any cancellation requested within this time frame.</p>
+        </div>
+
+        <h2>2. Promotional Offers</h2>
+        <p>Specific promotional offers, such as a launch deal, may include an extended money-back guarantee (e.g., 30 days).</p>
+        <p>The precise terms of that guarantee will be clearly stated on the offer page at the time of purchase and will supersede the standard policy for those specific transactions.</p>
+
+        <h2>3. How to Request a Refund</h2>
+        <p>To initiate a refund under the terms applicable to your purchase:</p>
+        <ol>
+            <li>Please contact our support team at the email address below.</li>
+            <li>Include your order number or purchase details.</li>
+        </ol>
+        <p>Refunds are processed via our Merchant of Record, **Paddle.com**. Please allow 5-10 business days for the refunded amount to appear on your statement after the refund has been confirmed by our team.</p>
+        
+        <div class="contact-box">
+            <h3>Support Contact</h3>
+            <p>For any questions or refund requests:</p>
+            <p><strong>Email:</strong> <a href="mailto:support@bikeshop-network.com">support@bikeshop-network.com</a></p>
+        </div>
+    </main>
 </body>
 </html>

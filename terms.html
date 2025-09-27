@@ -2,23 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Bike Shop Network</title>
-    <style>body { font-family: sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; }</style>
+    <link rel="icon" type="image/png" href="public/favicon.png">
+    <style>
+        /* --- Core Variables & Dark Mode (Consistent) --- */
+        :root {
+            --color-brand: #00c9a7;
+            --color-text: #1d1d1f;
+            --color-text-subtle: #6e6e73;
+            --color-background: #ffffff;
+            --color-background-soft: #f5f5f7;
+            --color-border: #eaeaec;
+            --color-link: #0066cc;
+            --color-highlight-bg: #fffbe6;
+            --color-highlight-border: #ffcc00;
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-text: #f5f5f7;
+                --color-text-subtle: #9e9e9f;
+                --color-background: #000000;
+                --color-background-soft: #121212;
+                --color-border: #222222;
+                --color-link: #4da6ff;
+                --color-highlight-bg: #333300;
+                --color-highlight-border: #ffcc00;
+            }
+        }
+        /* --- Global Styles --- */
+        body { 
+            font-family: var(--font-family-sans);
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 60px 20px; 
+            line-height: 1.75;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            transition: background-color 0.4s, color 0.4s;
+        }
+        header { border-bottom: 2px solid var(--color-border); padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { 
+            font-size: 2.5em; 
+            font-weight: 800;
+            color: var(--color-brand);
+            margin: 0;
+        }
+        .last-updated { font-size: 0.9em; color: var(--color-text-subtle); margin-top: 5px; }
+        h2 { 
+            font-size: 1.8em; 
+            font-weight: 700;
+            margin-top: 40px; 
+            color: var(--color-text);
+        }
+        p { font-size: 1.05em; }
+        strong { font-weight: 700; }
+
+        .highlight-box {
+            padding: 20px;
+            border: 1px solid var(--color-highlight-border);
+            background-color: var(--color-highlight-bg);
+            border-radius: 8px;
+            margin: 30px 0;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        .legal-footer { 
+            margin-top: 50px; 
+            padding: 30px; 
+            background-color: var(--color-background-soft);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+    </style>
 </head>
 <body>
-    <h1>Terms of Service</h1>
-    <p>Last updated: September 20, 2025</p>
-    <p>These terms and conditions outline the rules and regulations for the use of the Bike Shop Network Website and Service, located at https://www.bikeshop-network.com.</p>
-    <p>By accessing this website and using our service, we assume you accept these terms and conditions. Do not continue to use Bike Shop Network if you do not agree to take all of the terms and conditions stated on this page.</p>
+    <header>
+        <h1>Terms of Service (TOS)</h1>
+        <p class="last-updated">Last updated: <time datetime="2025-09-20">September 20, 2025</time></p>
+    </header>
 
-    <h2>Service Description</h2>
-    <p>Bike Shop Network provides a B2B Software-as-a-Service (SaaS) platform offering data and analytics for cycling professionals. Access to the service is provided on a subscription basis.</p>
+    <main>
+        <p>These terms and conditions outline the rules and regulations for the use of the Bike Shop Network Website and Service, located at <a href="https://www.bikeshop-network.com" style="color: white">https://www.bikeshop-network.com</a>.</p>
+        
+        <div class="highlight-box">
+            <p><strong>Acceptance of Terms:</strong> By accessing this website and using our B2B SaaS service, you confirm that you accept these terms and conditions. Do not continue to use Bike Shop Network if you do not agree to all of the terms stated on this page.</p>
+        </div>
 
-    <h2>Payments</h2>
-    <p>All payments for our services are processed by our Merchant of Record, Paddle.com. By making a purchase, you agree to Paddle's terms of service.</p>
+        <h2>1. Service Description</h2>
+        <p>Bike Shop Network provides a <strong>B2B Software-as-a-Service (SaaS)</strong> platform offering data, exclusive rankings, and analytics tools for cycling professionals. This service is based on the analysis of millions of public data points (e.g., Google Maps).</p>
+        <p>Access to the platform is provided solely on a subscription basis.</p>
 
-    <h2>Contact Information</h2>
-    <p>If you have any questions about these Terms, please contact us at contact@bikeshop-network.com.</p>
-    <p>Legal Name: Benoît Morin</p>
+        <h2>2. Subscriptions and Payment Processing</h2>
+        <p>All payments for our services are processed by our Merchant of Record, **Paddle.com**. By making a purchase, the user explicitly agrees to Paddle's terms of service and privacy policy.</p>
+        <p>We do not store or process any credit card information. All sensitive financial data is handled directly by Paddle.com.</p>
+
+        <h2>3. Contact Information</h2>
+
+        <div class="legal-footer">
+            <h3>Contact Regarding These Terms</h3>
+            <p>If you have any questions about these Terms, please contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:contact@bikeshop-network.com" style="color: white">contact@bikeshop-network.com</a></p>
+            <p><strong>Legal Name:</strong> Benoît Morin (SIRET: 83340915400022)</p>
+        </div>
+    </main>
 </body>
 </html>

@@ -3,41 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike Shop Network - Coming Soon</title>
+    <title>Bike Shop Network - The B2B Data Platform for Cycling Retail</title>
+    <link rel="icon" type="image/png" href="public/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <style>
+        /* --- Core Variables & Dark Mode (Consistent) --- */
+        :root {
+            --color-brand: #00c9a7;
+            --color-text: #1d1d1f;
+            --color-text-subtle: #6e6e73;
+            --color-background: #ffffff;
+            --color-background-soft: #f5f5f7;
+            --color-border: #eaeaec;
+            --color-link: #0066cc;
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --motion-duration: 0.6s;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-text: #f5f5f7;
+                --color-text-subtle: #9e9e9f;
+                --color-background: #000000;
+                --color-background-soft: #121212;
+                --color-border: #222222;
+                --color-link: #4da6ff;
+            }
+        }
+
+        /* --- Global Styles --- */
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            text-align: center; 
-            padding: 40px 20px; 
-            background-color: #f5f5f7; 
-            color: #1d1d1f; 
+            font-family: var(--font-family-sans);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background-color 0.4s, color 0.4s;
+            min-height: 100vh;
         }
-        h1 { font-size: 2.8em; margin-bottom: 0.5em; }
-        p { font-size: 1.2em; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+        a { color: var(--color-link); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--color-brand); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- Framer-like Animation Simulation --- */
+        .animate-on-load {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp var(--motion-duration) ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* --- Header / Hero --- */
+        .hero-section {
+            padding: 120px 0 80px;
+            text-align: center;
+            background-color: var(--color-background-soft);
+        }
+        .logo { font-size: 1.1em; font-weight: 600; text-transform: uppercase; color: var(--color-brand); margin-bottom: 8px; }
+        h1 { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 900;
+            margin: 0.1em 0 0.2em; 
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.1;
+        }
+        .tagline {
+            font-size: clamp(1.1rem, 2vw, 1.4rem); 
+            color: var(--color-text-subtle); 
+            max-width: 700px; 
+            margin: 25px auto 50px;
+        }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--color-brand);
+            color: var(--color-background);
+            font-weight: 700;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover { 
+            background-color: #00a68a; 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 201, 167, 0.2);
+        }
+
+        /* --- Stats Section --- */
+        .stats-section {
+            padding: 60px 0 80px;
+            background-color: var(--color-background);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: var(--color-background-soft);
+        }
+        .stat-number {
+            font-size: 3em;
+            font-weight: 900;
+            color: var(--color-brand);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.95em;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-top: 10px;
+        }
+        
+        /* --- Feature Grid (Tools) --- */
+        .feature-grid {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+        .feature-card {
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-background);
+            transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            border-color: var(--color-brand);
+            box-shadow: 0 5px 15px rgba(0, 201, 167, 0.1);
+        }
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-brand);
+            color: var(--color-background);
+            font-size: 1.5em;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .feature-card h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+        .feature-card p {
+            font-size: 0.95em;
+            color: var(--color-text-subtle);
+        }
+
+
+        /* --- Footer --- */
         footer { 
-            margin-top: 60px; 
-            font-size: 0.8em; 
-            color: #6e6e73; 
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border);
+            background-color: var(--color-background-soft);
+            font-size: 0.85em; 
+            color: var(--color-text-subtle); 
+            text-align: center;
         }
-        a { color: #0066cc; }
+        .footer-links a { color: var(--color-text-subtle); margin: 0 10px; }
+        .legal-details { margin-top: 15px; }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 80px 0 50px; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>Bike Shop Network</h1>
-    
-    <p>The data platform for cycling professionals. We help bike shops around the world optimize their business with reliable data and powerful tools.</p>
-    
-    <p style="margin-top: 20px;">Launching soon. Contact us at <a href="mailto:contact@bikeshop-network.com">contact@bikeshop-network.com</a>.</p>
-    
+    <header class="hero-section">
+        <div class="container">
+            <div class="logo animate-on-load">Bike Shop Network</div>
+            
+            <h1 class="animate-on-load delay-1">
+                The Data Platform for Cycling Retail Professionals.
+            </h1>
+            
+            <p class="tagline animate-on-load delay-2">
+                Elevating the cycling experience, one shop at a time. We empower local shops to dominate their markets with exclusive data and actionable insights.
+            </p>
+            
+            <a href="mailto:contact@bikeshop-network.com" class="cta-button animate-on-load delay-3">
+                Request Early Access
+                &nbsp; →
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 0.9em; color: var(--color-text-subtle);">
+                The launch is imminent.
+            </p>
+        </div>
+    </header>
+
+    <main class="stats-section">
+        <div class="container">
+            <h2 class="animate-on-load" style="text-align: center; font-size: 2em; font-weight: 700; margin-bottom: 40px;">
+                Home of the World's Largest Bike Retail Database
+            </h2>
+            <div class="stats-grid animate-on-load delay-1">
+                <div class="stat-item">
+                    <div class="stat-number">15,139</div>
+                    <div class="stat-label">Bike Shops Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">704</div>
+                    <div class="stat-label">Cities Covered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">56</div>
+                    <div class="stat-label">Countries Connected</div>
+                </div>
+            </div>
+            
+            <section style="margin-top: 80px; text-align: center;">
+                <h3 class="animate-on-load delay-2" style="font-size: 1.8em; font-weight: 700; color: var(--color-brand); margin-bottom: 25px;">
+                    Included Tools & Features
+                </h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-card animate-on-load delay-3">
+                        <div class="feature-icon">✨</div>
+                        <h3>Image Optimizer</h3>
+                        <p>Analyze and automatically compress website visuals to dramatically improve your loading speed and SEO ranking.</p>
+                    </div>
+                    <div class="feature-card animate-on-load delay-4">
+                        <div class="feature-icon">🖼️</div>
+                        <h3>Royalty-Free Gallery</h3>
+                        <p>Access hundreds of professional, high-quality images for your social media and marketing campaigns, hassle-free.</p>
+                    </div>
+                    <div class="feature-card animate-on-load delay-5">
+                        <div class="feature-icon">📝</div>
+                        <h3>Marketing Templates</h3>
+                        <p>300+ proven copy-paste templates for emails, newsletters, and social posts to effortlessly engage your community.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <footer>
-        <p>
-            <strong>Legal Notice</strong><br>
-            Legal Name: Benoît Morin<br>
-            Registered Address: 200 RUE de la Croix Nivert 75015 Paris FRANCE<br>
-            SIRET: 83340915400022<br>
-            Hosting Provider: Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
-        </p>
+        <div class="container">
+            <div class="footer-links">
+                <a href="terms.html">Terms of Service</a> | 
+                <a href="privacy.html">Privacy Policy</a> |
+                <a href="refund.html">Refund Policy</a>
+            </div>
+            <p style="margin-top: 20px;">
+               Headquartered in Paris, France • 200 RUE de la Croix Nivert 75015 Paris FRANCE • SIRET: 83340915400022
+            </p>
+            <p class="legal-details">
+                © 2025 Bike Shop Network. All rights reserved.
+            </p>
+        </div>
     </footer>
 </body>
 </html>
